@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration;
+package org.elyashevich.dbmigration.config;
 
 import java.io.IOException;
 import java.nio.file.Files;

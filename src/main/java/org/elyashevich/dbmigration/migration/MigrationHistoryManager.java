@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration;
+package org.elyashevich.dbmigration.migration;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
@@ -13,6 +13,7 @@ public class MigrationHistoryManager {
     private final static String CREATE_MIGRATION_HISTORY_TABLE_QUERY = "CREATE TABLE IF NOT EXISTS migration_history (" +
             "id SERIAL PRIMARY KEY, " +
             "version INT NOT NULL UNIQUE, " +
+            "is_locked BYTE NOT NULL, " +
             "applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP" +
             ");";
 

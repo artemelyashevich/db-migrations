@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration;
+package org.elyashevich.dbmigration.domain;
 
 import java.util.Objects;
 

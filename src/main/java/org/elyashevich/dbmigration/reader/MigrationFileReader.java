@@ -1,4 +1,6 @@
-package org.elyashevich.dbmigration;
+package org.elyashevich.dbmigration.reader;
+
+import org.elyashevich.dbmigration.domain.MigrationFile;
 
 import java.io.File;
 import java.io.IOException;

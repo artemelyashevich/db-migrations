@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration;
+package org.elyashevich.dbmigration.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;

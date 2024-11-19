@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration;
+package org.elyashevich.dbmigration.migration;
 
 import org.apache.logging.log4j.core.Logger;
 
@@ -6,6 +6,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 import org.apache.logging.log4j.LogManager;
+import org.elyashevich.dbmigration.domain.MigrationFile;
 
 
 public class MigrationManager {

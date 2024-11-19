@@ -1,6 +1,6 @@
 package org.elyashevich.dbmigration;
 
-import java.util.ResourceBundle;
+import org.elyashevich.dbmigration.reader.MigrationFileReader;
 
 public class Application {
 
