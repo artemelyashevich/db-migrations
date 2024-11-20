@@ -1,17 +1,43 @@
 package org.elyashevich.dbmigration.config;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Properties;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.core.Logger;
+import org.elyashevich.dbmigration.domain.DatabaseProperties;
+import org.elyashevich.dbmigration.validation.Validation;
+
+import java.util.MissingResourceException;
+import java.util.ResourceBundle;
 
 public class PropertiesUtil {
-    public static Properties loadProperties(final String filePath) {
-        var properties = new Properties();
-        try (var reader = Files.newBufferedReader(Path.of(filePath))) {
-            properties.load(reader);
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load properties file: " + filePath, e);
+
+    private final static Logger LOGGER = (Logger) LogManager.getLogger();
+
+    private final static String DRIVER_PROPERTY = "migrations.db.driver";
+    private final static String USERNAME_PROPERTY = "migrations.db.username";
+    private final static String PASSWORD_PROPERTY = "migrations.db.password";
+    private final static String URL_PROPERTY = "migrations.db.url";
+
+    private final Validation<DatabaseProperties> validation;
+
+    public PropertiesUtil(Validation<DatabaseProperties> validation) {
+        this.validation = validation;
+    }
+
+    public DatabaseProperties loadProperties(final String filename) {
+        DatabaseProperties properties = null;
+        try {
+            var resource = ResourceBundle.getBundle(filename);
+            properties = new DatabaseProperties(
+                    resource.getString(DRIVER_PROPERTY),
+                    resource.getString(USERNAME_PROPERTY),
+                    resource.getString(PASSWORD_PROPERTY),
+                    resource.getString(URL_PROPERTY)
+            );
+            this.validation.validate(properties);
+            return properties;
+        } catch (MissingResourceException exception) {
+            LOGGER.warn("Missing resource parameter: {}", exception.getMessage());
+            exception.printStackTrace();
         }
         return properties;
     }

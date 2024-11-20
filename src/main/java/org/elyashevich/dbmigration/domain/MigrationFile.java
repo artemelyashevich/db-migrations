@@ -7,7 +7,7 @@ public class MigrationFile {
     private String content;
     private Integer version;
 
-    public MigrationFile(){
+    public MigrationFile() {
     }
 
     public MigrationFile(String filename, String content, Integer version) {

@@ -2,6 +2,7 @@ package org.elyashevich.dbmigration.config;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
+import org.elyashevich.dbmigration.domain.DatabaseProperties;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,21 +11,34 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
     private static final Logger LOGGER = (Logger) LogManager.getLogger();
+    private static ConnectionManager instance;
+    private Connection connection;
 
-    public static Connection getConnection(
-            final String driver,
-            final String username,
-            final String url,
-            final String password
-    ) {
-        Connection connection = null;
+    private ConnectionManager() {
+    }
+
+    public static ConnectionManager getInstance() {
+        if (instance == null) {
+            instance = new ConnectionManager();
+        }
+        return instance;
+    }
+
+    public Connection getConnection(final DatabaseProperties properties) {
         try {
-            Class.forName(driver);
-            connection = DriverManager.getConnection(url, username, password);
-            LOGGER.info("Connected to db.");
-        } catch (ClassNotFoundException | SQLException  exception) {
+            if (connection == null || connection.isClosed()) {
+                Class.forName(properties.driver());
+                connection = DriverManager.getConnection(
+                        properties.url(),
+                        properties.username(),
+                        properties.password()
+                );
+                LOGGER.info("Connected to db.");
+            }
+        } catch (ClassNotFoundException | SQLException exception) {
+            LOGGER.warn("Failed connect to database.");
             exception.printStackTrace();
         }
-        return  connection;
+        return connection;
     }
 }

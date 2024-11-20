@@ -1,2 +1,33 @@
-2024-11-19 22:57:37 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
-2024-11-19 23:13:27 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:00:34 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:00:52 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:01:18 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:01:18 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Unknown column 'filename' in 'field list'
+2024-11-21 00:01:18 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_1__create_cat
+2024-11-21 00:01:18 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Unknown column 'filename' in 'field list'
+2024-11-21 00:01:18 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_2__create_dog
+2024-11-21 00:02:41 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:02:41 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Unknown column 'filename' in 'field list'
+2024-11-21 00:02:41 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_1__create_cat
+2024-11-21 00:02:41 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Unknown column 'filename' in 'field list'
+2024-11-21 00:02:41 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_2__create_dog
+2024-11-21 00:05:07 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:05:07 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Unknown column 'content' in 'field list'
+2024-11-21 00:05:07 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_1__create_cat
+2024-11-21 00:05:07 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Unknown column 'content' in 'field list'
+2024-11-21 00:05:07 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_2__create_dog
+2024-11-21 00:06:00 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:06:00 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_1__create_cat
+2024-11-21 00:06:00 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_2__create_dog
+2024-11-21 00:08:04 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:08:04 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_1__create_cat
+2024-11-21 00:08:04 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_2__create_dog
+2024-11-21 00:10:04 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:10:04 [main] WARN  org.elyashevich.dbmigration.history.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Duplicate entry '2' for key 'migration_history.version'
+2024-11-21 00:10:04 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_2__create_dog
+2024-11-21 00:10:04 [main] INFO  org.elyashevich.dbmigration.core.manager.impl.MigrationManagerImpl - Applied migration: V_3__alter_age_dog
+2024-11-21 00:13:38 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:15:29 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:19:52 [main] INFO  org.elyashevich.dbmigration.config.ConnectionManager - Connected to db.
+2024-11-21 00:20:00 [main] WARN  org.elyashevich.dbmigration.config.PropertiesUtil - Missing resource parameter: Can't find resource for bundle java.util.PropertyResourceBundle, key migrations.db.password
+2024-11-21 00:20:14 [main] WARN  org.elyashevich.dbmigration.config.PropertiesUtil - Missing resource parameter: Can't find resource for bundle java.util.PropertyResourceBundle, key migrations.db.password
+2024-11-21 00:20:22 [main] WARN  org.elyashevich.dbmigration.validation.impl.PropertiesValidation - Password must not be null or empty.
