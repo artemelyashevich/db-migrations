@@ -11,10 +11,13 @@ public class MigrationExecutor implements Executor {
 
     private final static Logger LOGGER = (Logger) LogManager.getLogger();
 
-    public void applyMigration(final String query, final Connection connection) {
+    public void applyMigration(final String query, final Connection connection) throws SQLException {
         try (var prepareStatement = connection.prepareStatement(query)) {
+            connection.setAutoCommit(false);
             prepareStatement.execute();
+            connection.commit();
         } catch (SQLException exception) {
+            connection.rollback();
             LOGGER.warn("Failed to apply migration: {}", exception.getMessage());
             exception.printStackTrace();
         }

@@ -3,6 +3,7 @@ package org.elyashevich.dbmigration.core.manager.impl;
 import org.apache.logging.log4j.core.Logger;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -27,11 +28,16 @@ public class MigrationManagerImpl implements MigrationManager {
     @Override
     public void migrate(final List<MigrationFile> migrationFiles, final Connection connection) {
         int latestVersion = this.migrationHistoryService.findCurrentVersion(connection);
-        for (MigrationFile migration : migrationFiles) {
+        for (var migration : migrationFiles) {
             if (latestVersion >= migration.getVersion()) {
                 continue;
             }
-            this.migrationExecutor.applyMigration(migration.getContent(), connection);
+            try {
+                this.migrationExecutor.applyMigration(migration.getContent(), connection);
+            } catch (SQLException exception) {
+                LOGGER.warn("Failed to apply migration.");
+                exception.printStackTrace();
+            }
             this.migrationHistoryService.saveMigration(migration, connection);
             LOGGER.info("Applied migration: {}", migration.getFilename());
             latestVersion = migration.getVersion();
