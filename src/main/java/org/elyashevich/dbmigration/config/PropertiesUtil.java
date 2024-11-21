@@ -36,8 +36,7 @@ public class PropertiesUtil {
             this.validation.validate(properties);
             return properties;
         } catch (MissingResourceException exception) {
-            LOGGER.warn("Missing resource parameter: {}", exception.getMessage());
-            exception.printStackTrace();
+            LOGGER.error("Missing resource parameter: {}", exception.getMessage());
         }
         return properties;
     }

@@ -30,8 +30,7 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
             prepareStatement.setInt(2, 0);
             prepareStatement.executeUpdate();
         } catch (SQLException exception) {
-            LOGGER.warn("Failed to save migration: {}", exception.getMessage());
-            exception.printStackTrace();
+            LOGGER.error("Failed to save migration: {}", exception.getMessage());
         }
     }
 
@@ -44,8 +43,7 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
                 return resultSet.getInt("version");
             }
         } catch (SQLException exception) {
-            LOGGER.warn("Error getting current version: {}", exception.getMessage());
-            exception.printStackTrace();
+            LOGGER.error("Error getting current version: {}", exception.getMessage());
         }
         return 0;
     }
@@ -54,8 +52,7 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
         try (var prepareStatement = connection.prepareStatement(CREATE_MIGRATION_HISTORY_TABLE_QUERY)) {
             prepareStatement.executeUpdate();
         } catch (SQLException exception) {
-            LOGGER.warn("Error creating migration_history table: {}", exception.getMessage());
-            exception.printStackTrace();
+            LOGGER.error("Error creating migration_history table: {}", exception.getMessage());
         }
     }
 }

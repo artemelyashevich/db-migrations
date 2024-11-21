@@ -31,3 +31,4 @@
 2024-11-21 00:20:00 [main] WARN  org.elyashevich.dbmigration.config.PropertiesUtil - Missing resource parameter: Can't find resource for bundle java.util.PropertyResourceBundle, key migrations.db.password
 2024-11-21 00:20:14 [main] WARN  org.elyashevich.dbmigration.config.PropertiesUtil - Missing resource parameter: Can't find resource for bundle java.util.PropertyResourceBundle, key migrations.db.password
 2024-11-21 00:20:22 [main] WARN  org.elyashevich.dbmigration.validation.impl.PropertiesValidation - Password must not be null or empty.
+2024-11-21 15:51:55 [main] WARN  org.elyashevich.dbmigration.validation.impl.MigrationFileValidation - Migration content must not be null or empty.

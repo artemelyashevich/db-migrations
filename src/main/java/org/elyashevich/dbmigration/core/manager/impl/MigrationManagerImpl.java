@@ -35,8 +35,7 @@ public class MigrationManagerImpl implements MigrationManager {
             try {
                 this.migrationExecutor.applyMigration(migration.getContent(), connection);
             } catch (SQLException exception) {
-                LOGGER.warn("Failed to apply migration.");
-                exception.printStackTrace();
+                LOGGER.error("Failed to apply migration: {}", exception.getMessage());
             }
             this.migrationHistoryService.saveMigration(migration, connection);
             LOGGER.info("Applied migration: {}", migration.getFilename());

@@ -18,8 +18,7 @@ public class MigrationExecutor implements Executor {
             connection.commit();
         } catch (SQLException exception) {
             connection.rollback();
-            LOGGER.warn("Failed to apply migration: {}", exception.getMessage());
-            exception.printStackTrace();
+            LOGGER.error("Failed to apply migration: {}", exception.getMessage());
         }
     }
 }

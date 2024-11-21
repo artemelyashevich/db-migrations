@@ -3,6 +3,7 @@ package org.elyashevich.dbmigration.reader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.elyashevich.dbmigration.domain.MigrationFile;
+import org.elyashevich.dbmigration.exception.MigrationFilesException;
 import org.elyashevich.dbmigration.util.FileParserUtil;
 import org.elyashevich.dbmigration.validation.Validation;
 
@@ -25,7 +26,7 @@ public class MigrationFileReader {
         var folder = new File(pathToMigrations);
         var listOfFiles = folder.listFiles();
         if (listOfFiles == null) {
-            throw new RuntimeException("Where no files.");
+            throw new MigrationFilesException("Where no files.");
         }
         return Arrays.stream(listOfFiles)
                 .filter(file -> FileParserUtil.getFileExtension(file.getName()).equals(".sql"))
@@ -48,8 +49,7 @@ public class MigrationFileReader {
             migrationFile.setContent(content);
             migrationFile.setVersion(version);
         } catch (IOException e) {
-            LOGGER.warn("Error during reading files.");
-            e.printStackTrace();
+            LOGGER.error("Error during reading files: {}", e.getMessage());
         }
         return migrationFile;
     }

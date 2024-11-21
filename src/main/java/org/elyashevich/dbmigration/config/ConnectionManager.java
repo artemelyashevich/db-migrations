@@ -36,8 +36,7 @@ public class ConnectionManager {
                 LOGGER.info("Connected to db.");
             }
         } catch (ClassNotFoundException | SQLException exception) {
-            LOGGER.warn("Failed connect to database.");
-            exception.printStackTrace();
+            LOGGER.error("Failed connect to database: {}", exception.getMessage());
         }
         return connection;
     }
