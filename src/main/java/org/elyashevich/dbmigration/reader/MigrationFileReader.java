@@ -3,6 +3,7 @@ package org.elyashevich.dbmigration.reader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.elyashevich.dbmigration.domain.MigrationFile;
+import org.elyashevich.dbmigration.util.FileParserUtil;
 import org.elyashevich.dbmigration.validation.Validation;
 
 import java.io.File;
@@ -10,7 +11,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
-import java.util.regex.Pattern;
 
 public class MigrationFileReader {
 
@@ -28,7 +28,7 @@ public class MigrationFileReader {
             throw new RuntimeException("Where no files.");
         }
         return Arrays.stream(listOfFiles)
-                .filter(file -> getFileExtension(file.getName()).equals(".sql"))
+                .filter(file -> FileParserUtil.getFileExtension(file.getName()).equals(".sql"))
                 .map(file -> {
                     var migration = this.readMigration(file);
                     this.migrationFileValidation.validate(migration);
@@ -42,8 +42,8 @@ public class MigrationFileReader {
         try {
             var name = file.getName();
             var content = Files.readString(file.toPath());
-            var version = getVersionFromFileName(name);
-            var fileName = getMigrationFileName(name);
+            var version = FileParserUtil.getVersionFromFileName(name);
+            var fileName = FileParserUtil.getMigrationFileName(name);
             migrationFile.setFilename(fileName);
             migrationFile.setContent(content);
             migrationFile.setVersion(version);
@@ -52,24 +52,5 @@ public class MigrationFileReader {
             e.printStackTrace();
         }
         return migrationFile;
-    }
-
-    private String getFileExtension(String fileName) {
-        return (fileName.lastIndexOf('.') == -1) ? "" : fileName.substring(fileName.lastIndexOf('.'));
-    }
-
-    private int getVersionFromFileName(String fileName) {
-        var pattern = Pattern.compile("V_(\\d+)");
-        var matcher = pattern.matcher(fileName);
-        int version = 0;
-        if (matcher.find()) {
-            version = Integer.parseInt(matcher.group(1));
-        }
-        return version;
-    }
-
-    private String getMigrationFileName(String fileName) {
-        String[] fileNameParts = fileName.split("\\.");
-        return (fileNameParts.length > 0) ? fileNameParts[0] : fileName;
     }
 }
