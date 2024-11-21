@@ -1,9 +1,8 @@
-package org.elyashevich.dbmigration.history.dao.impl;
+package org.elyashevich.dbmigration.dao;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.elyashevich.dbmigration.domain.MigrationFile;
-import org.elyashevich.dbmigration.history.dao.MigrationHistoryDao;
 
 import java.sql.Connection;
 import java.sql.SQLException;

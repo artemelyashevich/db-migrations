@@ -7,15 +7,6 @@ public class MigrationFile {
     private String content;
     private Integer version;
 
-    public MigrationFile() {
-    }
-
-    public MigrationFile(String filename, String content, Integer version) {
-        this.filename = filename;
-        this.content = content;
-        this.version = version;
-    }
-
     public String getFilename() {
         return filename;
     }

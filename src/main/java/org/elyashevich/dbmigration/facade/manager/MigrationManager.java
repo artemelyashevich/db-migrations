@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration.core.manager;
+package org.elyashevich.dbmigration.facade.manager;
 
 import org.elyashevich.dbmigration.domain.MigrationFile;
 

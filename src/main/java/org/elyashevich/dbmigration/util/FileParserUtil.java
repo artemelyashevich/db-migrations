@@ -1,25 +1,27 @@
 package org.elyashevich.dbmigration.util;
 
+import java.nio.file.Path;
 import java.util.regex.Pattern;
 
-public class FileParserUtil {
+public final class FileParserUtil {
 
-    public static String getFileExtension(String fileName) {
-        return (fileName.lastIndexOf('.') == -1) ? "" : fileName.substring(fileName.lastIndexOf('.'));
+    public static final Pattern MIGRATION_VERSION_PATTERN = Pattern.compile("V_(\\d+)");
+
+    private FileParserUtil() {
+        throw new UnsupportedOperationException("This is a utility class and cannot be instantiated");
     }
 
-    public static int getVersionFromFileName(String fileName) {
-        var pattern = Pattern.compile("V_(\\d+)");
-        var matcher = pattern.matcher(fileName);
-        int version = 0;
-        if (matcher.find()) {
-            version = Integer.parseInt(matcher.group(1));
-        }
-        return version;
+    public static boolean checkIfSql(final Path path) {
+        return path.getFileName().toString().endsWith(".sql");
     }
 
-    public static String getMigrationFileName(String fileName) {
-        String[] fileNameParts = fileName.split("\\.");
-        return (fileNameParts.length > 0) ? fileNameParts[0] : fileName;
+    public static int extractVersion(final String filename) {
+        var matcher = MIGRATION_VERSION_PATTERN.matcher(filename);
+        return matcher.find() ? Integer.parseInt(matcher.group(1)) : 0;
+    }
+
+    public static String extractFilename(final String filename) {
+        String[] fileNameParts = filename.split("\\.");
+        return (fileNameParts.length > 0) ? fileNameParts[0] : filename;
     }
 }

@@ -3,6 +3,7 @@ package org.elyashevich.dbmigration.domain;
 import java.sql.Date;
 import java.util.Objects;
 
+// TODO
 public class MigrationHistory {
 
     private Long id;

@@ -1,16 +1,16 @@
-package org.elyashevich.dbmigration.history.service.impl;
+package org.elyashevich.dbmigration.service.impl;
 
 import org.elyashevich.dbmigration.domain.MigrationFile;
-import org.elyashevich.dbmigration.history.dao.MigrationHistoryDao;
-import org.elyashevich.dbmigration.history.service.MigrationHistoryService;
+import org.elyashevich.dbmigration.dao.MigrationHistoryDao;
+import org.elyashevich.dbmigration.service.MigrationHistoryService;
 
 import java.sql.Connection;
 
-public class MigrationHistoryServiceImpl implements MigrationHistoryService {
+public class DefaultMigrationHistoryService implements MigrationHistoryService {
 
     private final MigrationHistoryDao migrationHistoryDao;
 
-    public MigrationHistoryServiceImpl(MigrationHistoryDao migrationHistoryDao) {
+    public DefaultMigrationHistoryService(MigrationHistoryDao migrationHistoryDao) {
         this.migrationHistoryDao = migrationHistoryDao;
     }
 

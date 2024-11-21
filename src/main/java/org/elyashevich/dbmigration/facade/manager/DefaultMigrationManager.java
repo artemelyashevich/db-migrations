@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration.core.manager.impl;
+package org.elyashevich.dbmigration.facade.manager;
 
 import org.apache.logging.log4j.core.Logger;
 
@@ -7,20 +7,19 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
-import org.elyashevich.dbmigration.core.executor.Executor;
-import org.elyashevich.dbmigration.core.manager.MigrationManager;
+import org.elyashevich.dbmigration.service.MigrationExecutorService;
 import org.elyashevich.dbmigration.domain.MigrationFile;
-import org.elyashevich.dbmigration.history.service.MigrationHistoryService;
+import org.elyashevich.dbmigration.service.MigrationHistoryService;
 
 
-public class MigrationManagerImpl implements MigrationManager {
+public class DefaultMigrationManager implements MigrationManager {
 
     private static final Logger LOGGER = (Logger) LogManager.getLogger();
 
-    private final Executor migrationExecutor;
+    private final MigrationExecutorService migrationExecutor;
     private final MigrationHistoryService migrationHistoryService;
 
-    public MigrationManagerImpl(Executor executor, MigrationHistoryService migrationHistoryService) {
+    public DefaultMigrationManager(MigrationExecutorService executor, MigrationHistoryService migrationHistoryService) {
         this.migrationExecutor = executor;
         this.migrationHistoryService = migrationHistoryService;
     }
@@ -33,13 +32,16 @@ public class MigrationManagerImpl implements MigrationManager {
             if (latestVersion >= migration.getVersion()) {
                 continue;
             }
+
             try {
                 this.migrationExecutor.apply(migration.getContent(), connection);
                 this.migrationHistoryService.saveMigration(migration, connection);
                 latestVersion = migration.getVersion();
+
                 LOGGER.info("Applied migration: {}", migration.getFilename());
-            } catch (SQLException exception) {
-                LOGGER.error("Failed to apply migration: {}", exception.getMessage());
+            } catch (SQLException e) {
+                LOGGER.error("Failed to apply migration: {}", e.getMessage());
+                return;
             }
         }
     }

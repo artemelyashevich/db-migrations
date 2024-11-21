@@ -1,11 +1,11 @@
-package org.elyashevich.dbmigration.reader;
+package org.elyashevich.dbmigration.facade.reader;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.elyashevich.dbmigration.domain.MigrationFile;
-import org.elyashevich.dbmigration.exception.MigrationFilesException;
+import org.elyashevich.dbmigration.facade.reader.validator.impl.MigrationFileValidator;
 import org.elyashevich.dbmigration.util.FileParserUtil;
-import org.elyashevich.dbmigration.validation.Validation;
+import org.elyashevich.dbmigration.facade.reader.validator.Validator;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,28 +19,20 @@ import java.util.stream.Collectors;
 public class MigrationFileReader {
 
     private static final Logger LOGGER = LogManager.getLogger();
-    private final Validation<MigrationFile> migrationFileValidation;
-
-    public MigrationFileReader(Validation<MigrationFile> migrationFileValidation) {
-        this.migrationFileValidation = migrationFileValidation;
-    }
+    private static final Validator<MigrationFile> validator = new MigrationFileValidator();
 
     public List<MigrationFile> read(final String pathToMigrations) {
         Objects.requireNonNull(pathToMigrations, "The path to migrations cannot be null");
 
         var folder = Paths.get(pathToMigrations);
-
-        // TODO: create validator
-        if (!Files.exists(folder) || !Files.isDirectory(folder)) {
-            throw new MigrationFilesException("Invalid path: No such directory.");
-        }
+        validator.validatePath(folder);
 
         try (var paths = Files.list(folder)) {
             return paths.filter(Files::isRegularFile)
-                    .filter(path -> path.getFileName().toString().endsWith(".sql"))
+                    .filter(FileParserUtil::checkIfSql)
                     .map(file -> {
                         var migration = this.parseMigration(file);
-                        this.migrationFileValidation.validate(migration);
+                        validator.validate(migration);
                         return migration;
                     })
                     .sorted(Comparator.comparing(MigrationFile::getVersion))
@@ -56,10 +48,10 @@ public class MigrationFileReader {
             var name = path.getFileName().toString();
 
             var content = Files.readString(path);
-            var version = FileParserUtil.getVersionFromFileName(name);
-            var fileName = FileParserUtil.getMigrationFileName(name);
+            var version = FileParserUtil.extractVersion(name);
+            var filename = FileParserUtil.extractFilename(name);
 
-            migrationFile.setFilename(fileName);
+            migrationFile.setFilename(filename);
             migrationFile.setContent(content);
             migrationFile.setVersion(version);
         } catch (IOException e) {

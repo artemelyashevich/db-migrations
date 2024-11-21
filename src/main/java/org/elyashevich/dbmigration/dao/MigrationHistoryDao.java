@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration.history.dao;
+package org.elyashevich.dbmigration.dao;
 
 import org.elyashevich.dbmigration.domain.MigrationFile;
 

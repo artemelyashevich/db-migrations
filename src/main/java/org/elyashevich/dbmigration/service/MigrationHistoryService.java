@@ -1,4 +1,4 @@
-package org.elyashevich.dbmigration.history.service;
+package org.elyashevich.dbmigration.service;
 
 import org.elyashevich.dbmigration.domain.MigrationFile;
 
