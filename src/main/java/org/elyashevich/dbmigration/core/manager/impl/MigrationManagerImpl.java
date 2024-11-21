@@ -15,7 +15,7 @@ import org.elyashevich.dbmigration.history.service.MigrationHistoryService;
 
 public class MigrationManagerImpl implements MigrationManager {
 
-    private final static Logger LOGGER = (Logger) LogManager.getLogger();
+    private static final Logger LOGGER = (Logger) LogManager.getLogger();
 
     private final Executor migrationExecutor;
     private final MigrationHistoryService migrationHistoryService;
@@ -28,18 +28,19 @@ public class MigrationManagerImpl implements MigrationManager {
     @Override
     public void migrate(final List<MigrationFile> migrationFiles, final Connection connection) {
         int latestVersion = this.migrationHistoryService.findCurrentVersion(connection);
+
         for (var migration : migrationFiles) {
             if (latestVersion >= migration.getVersion()) {
                 continue;
             }
             try {
-                this.migrationExecutor.applyMigration(migration.getContent(), connection);
+                this.migrationExecutor.apply(migration.getContent(), connection);
+                this.migrationHistoryService.saveMigration(migration, connection);
+                latestVersion = migration.getVersion();
+                LOGGER.info("Applied migration: {}", migration.getFilename());
             } catch (SQLException exception) {
                 LOGGER.error("Failed to apply migration: {}", exception.getMessage());
             }
-            this.migrationHistoryService.saveMigration(migration, connection);
-            LOGGER.info("Applied migration: {}", migration.getFilename());
-            latestVersion = migration.getVersion();
         }
     }
 }

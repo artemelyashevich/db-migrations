@@ -9,9 +9,9 @@ import java.sql.SQLException;
 
 public class MigrationExecutor implements Executor {
 
-    private final static Logger LOGGER = (Logger) LogManager.getLogger();
+    private static final Logger LOGGER = (Logger) LogManager.getLogger();
 
-    public void applyMigration(final String query, final Connection connection) throws SQLException {
+    public void apply(final String query, final Connection connection) throws SQLException {
         try (var prepareStatement = connection.prepareStatement(query)) {
             connection.setAutoCommit(false);
             prepareStatement.execute();

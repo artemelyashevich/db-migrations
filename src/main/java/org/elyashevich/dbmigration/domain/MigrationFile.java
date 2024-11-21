@@ -24,12 +24,20 @@ public class MigrationFile {
         return content;
     }
 
+    public Integer getVersion() {
+        return version;
+    }
+
     public void setFilename(String filename) {
         this.filename = filename;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setVersion(Integer version) {
+        this.version = version;
     }
 
     @Override
@@ -43,14 +51,6 @@ public class MigrationFile {
     @Override
     public int hashCode() {
         return Objects.hash(filename, content);
-    }
-
-    public Integer getVersion() {
-        return version;
-    }
-
-    public void setVersion(Integer version) {
-        this.version = version;
     }
 
     @Override

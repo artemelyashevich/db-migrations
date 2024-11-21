@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.elyashevich.dbmigration.domain.MigrationFile;
 import org.elyashevich.dbmigration.exception.InvalidDatabasePropertiesException;
+import org.elyashevich.dbmigration.exception.MigrationFilesException;
 import org.elyashevich.dbmigration.validation.Validation;
 
 public class MigrationFileValidation implements Validation<MigrationFile> {
@@ -17,11 +18,12 @@ public class MigrationFileValidation implements Validation<MigrationFile> {
         validateProperty(migrationFile.getVersion().toString(), "Migration version");
     }
 
+    // TODO
     private static void validateProperty(final String property, final String propertyName) {
-        if (property == null || property.trim().isEmpty()) {
+        if (property.isBlank()) {
             var message = propertyName + " must not be null or empty.";
             LOGGER.warn(message);
-            throw new InvalidDatabasePropertiesException(message);
+            throw new MigrationFilesException(message);
         }
     }
 }
