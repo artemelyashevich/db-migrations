@@ -1,0 +1,202 @@
+2024-11-22 23:06:45 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:07:26 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:07:32 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:07:40 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:08:25 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:08:37 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:17:07 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:17:07 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS cat;
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY K' at line 5
+2024-11-22 23:17:07 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_4__drop_cat
+2024-11-22 23:17:07 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_5__create_cat
+2024-11-22 23:17:07 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_6__alter_age_dog
+2024-11-22 23:17:47 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:17:47 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DROP TABLE IF EXISTS cat;
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY K' at line 5
+2024-11-22 23:17:47 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_4__drop_cat
+2024-11-22 23:17:47 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_5__create_cat
+2024-11-22 23:17:47 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_6__alter_age_dog
+2024-11-22 23:18:52 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:18:52 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)' at line 5
+2024-11-22 23:18:52 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_2__create_dog
+2024-11-22 23:18:52 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_5__create_cat
+2024-11-22 23:18:52 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_6__alter_age_dog
+2024-11-22 23:20:47 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:20:47 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)' at line 5
+2024-11-22 23:20:47 [main] ERROR org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Failed to apply migration: Failed to apply migration: CREATE TABLE IF NOT EXISTS dog (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+ALTER TABLE dog
+ADD COLUMN age INT;
+
+2024-11-22 23:22:11 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:22:11 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)' at line 5
+2024-11-22 23:22:11 [main] ERROR org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Failed to apply migration: Failed to apply migration: CREATE TABLE IF NOT EXISTS dog (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+ALTER TABLE dog
+ADD COLUMN age INT;
+
+2024-11-22 23:23:00 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:23:00 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)' at line 5
+2024-11-22 23:23:00 [main] ERROR org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Failed to apply migration: Failed to apply migration: CREATE TABLE IF NOT EXISTS dog (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+ALTER TABLE dog
+ADD COLUMN age INT;
+
+2024-11-22 23:23:31 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:23:31 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)' at line 5
+2024-11-22 23:23:31 [main] ERROR org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Failed to apply migration: Failed to apply migration: CREATE TABLE IF NOT EXISTS dog (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+CREATE TABLE IF NOT EXISTS cat (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+ALTER TABLE dog
+ADD COLUMN age INT;
+
+2024-11-22 23:24:24 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:24:24 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:25:28 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:25:28 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:26:28 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:26:28 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:26:28 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:26:28 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:26:51 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:26:51 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:26:51 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:26:51 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:28:04 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:28:04 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:28:04 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been saved
+2024-11-22 23:28:04 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:28:04 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:28:04 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:28:24 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:28:25 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:28:25 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:28:25 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:28:25 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:28:25 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:28:52 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:28:52 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:28:52 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:28:52 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:28:52 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:28:52 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:30:58 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:30:58 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:30:58 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:30:58 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:30:58 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:30:58 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:32:39 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:32:39 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:32:39 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:32:39 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:32:39 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:32:39 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:32:54 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:32:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:32:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:32:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:32:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:32:54 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:33:09 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:33:09 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:33:09 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:33:09 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:33:09 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:33:09 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:41:36 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:41:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:41:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:41:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:41:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:41:36 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:41:59 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:41:59 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:41:59 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:41:59 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:41:59 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:41:59 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:42:36 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:42:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:42:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:42:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:42:36 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Duplicate entry '1' for key 'migration_history.version'
+2024-11-22 23:42:36 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:43:05 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:43:06 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:43:06 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:43:06 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:43:06 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:43:06 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:43:50 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:43:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:43:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:43:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:43:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:43:50 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:44:33 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:44:33 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:44:33 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:44:33 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:44:33 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:44:33 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:44:36 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:44:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:44:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:44:36 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:45:16 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:45:26 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:56:34 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:56:34 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:56:34 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:56:34 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:56:34 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:56:34 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:56:49 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:56:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:56:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:56:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:56:50 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error unlocking migration: Parameter index out of range (1 > number of parameters, which is 0).
+2024-11-22 23:56:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:56:50 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-22 23:57:18 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-22 23:57:18 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Attempting to apply actual migrations
+2024-11-22 23:57:18 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied
+2024-11-22 23:57:18 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-22 23:57:18 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-22 23:57:18 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog

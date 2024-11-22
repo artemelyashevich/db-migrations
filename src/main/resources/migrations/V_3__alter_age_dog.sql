@@ -1,2 +1,0 @@
-ALTER TABLE dog
-ADD COLUMN age INT;

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface MigrationManager {
 
-    void migrate(final List<MigrationFile> migrationFiles, final Connection connection);
+    void migrate(final List<MigrationFile> migrationFiles, final Connection connection) throws InterruptedException;
 }

@@ -33,7 +33,6 @@ public class MigrationFacade {
         this.fileReader = new MigrationFileReader();
         this.connectionManager = ConnectionManager.getInstance();
 
-        // TODO: create factory method
         var historyService = new DefaultMigrationHistoryService(new MigrationHistoryDaoImpl());
         var executor = new DefaultMigrationExecutor();
         this.migrationManager = new DefaultMigrationManager(executor, historyService);

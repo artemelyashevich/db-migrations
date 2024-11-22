@@ -9,4 +9,6 @@ public interface MigrationHistoryDao {
     void saveMigration(final MigrationFile migrationFile, final Connection connection);
 
     Integer findCurrentVersion(final Connection connection);
+
+    Boolean checkIfLocked(final Connection connection);
 }
