@@ -8,7 +8,7 @@ import org.elyashevich.dbmigration.exception.BrokenValidationException;
 import org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager;
 import org.elyashevich.dbmigration.facade.reader.MigrationPropertyReader;
 import org.elyashevich.dbmigration.domain.DatabaseProperties;
-import org.elyashevich.dbmigration.dao.MigrationHistoryDaoImpl;
+import org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl;
 import org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService;
 import org.elyashevich.dbmigration.facade.reader.MigrationFileReader;
 
