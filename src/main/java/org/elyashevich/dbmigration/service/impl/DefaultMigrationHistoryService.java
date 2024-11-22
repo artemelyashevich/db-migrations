@@ -7,7 +7,6 @@ import org.elyashevich.dbmigration.dao.MigrationHistoryDao;
 import org.elyashevich.dbmigration.service.MigrationHistoryService;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 public class DefaultMigrationHistoryService implements MigrationHistoryService {
