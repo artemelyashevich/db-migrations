@@ -8,4 +8,6 @@ import java.util.List;
 public interface MigrationManager {
 
     void migrate(final List<MigrationFile> migrationFiles, final Connection connection) throws InterruptedException;
+
+    void printInfo(final Connection connection);
 }

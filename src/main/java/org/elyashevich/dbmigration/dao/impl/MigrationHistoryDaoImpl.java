@@ -7,6 +7,8 @@ import org.elyashevich.dbmigration.domain.MigrationFile;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
 
@@ -15,6 +17,7 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
     private static final String SELECT_CURRENT_VERSION_QUERY =
             "SELECT version FROM migration_history ORDER BY version DESC LIMIT 1";
     private static final String SELECT_UNLOCKED_MIGRATIONS = "SELECT * FROM migration_history WHERE is_locked = 1";
+    private static final String SELECT_ALL = "SELECT name, version FROM migration_history LIMIT 10;";
     private static final String SAVE_MIGRATION_QUERY =
             "INSERT INTO migration_history (name, version, is_locked) VALUES (?, ?, ?);";
     private static final String CREATE_MIGRATION_HISTORY_TABLE_QUERY = """
@@ -83,6 +86,26 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
         } catch (SQLException exception) {
             LOGGER.error("Error unlocking migration: {}", exception.getMessage());
         }
+    }
+
+    @Override
+    public List<MigrationFile> findInfo(Connection connection) {
+        var info = new ArrayList<MigrationFile>(10);
+        try (var prepareStatement = connection.prepareStatement(SELECT_ALL);
+             var resultSet = prepareStatement.executeQuery()) {
+            LOGGER.debug("Attempting find info.");
+
+            while (resultSet.next()) {
+                var migration = new MigrationFile();
+                migration.setFilename(resultSet.getString(1));
+                migration.setVersion(resultSet.getInt(2));
+                info.add(migration);
+            }
+            LOGGER.info("Latest migration versions has been found.");
+        } catch (SQLException exception) {
+            LOGGER.error("Error finding info: {}", exception.getMessage());
+        }
+        return info;
     }
 
     private static void createTable(final Connection connection) {

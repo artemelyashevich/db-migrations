@@ -55,4 +55,12 @@ public class MigrationFacade {
             LOGGER.error("Unable to parse migrations files: {}", e.getMessage());
         }
     }
+
+    public void printAppliedMigrations() {
+        try(var connection = this.connectionManager.getConnection(properties) ) {
+            this.migrationManager.printInfo(connection);
+        }catch (SQLException e) {
+            LOGGER.error("Failed to print migrations info: {}", e.getMessage());
+        }
+    }
 }

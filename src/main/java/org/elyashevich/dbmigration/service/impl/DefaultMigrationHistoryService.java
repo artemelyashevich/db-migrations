@@ -37,4 +37,17 @@ public class DefaultMigrationHistoryService implements MigrationHistoryService {
     public Boolean isLocked(final Connection connection) {
         return this.migrationHistoryDao.checkIfLocked(connection);
     }
+
+    @Override
+    public List<String> findInfo(final Connection connection) {
+        return this.migrationHistoryDao.findInfo(connection).stream()
+                .map(migration -> {
+                    var builder = new StringBuilder();
+                    builder.append(migration.getFilename());
+                    builder.append(" ");
+                    builder.append(migration.getVersion());
+                    return builder.toString();
+                })
+                .toList();
+    }
 }

@@ -45,6 +45,13 @@ public class DefaultMigrationManager implements MigrationManager {
         this.processMigration(migrationFiles, connection);
     }
 
+    @Override
+    public void printInfo(Connection connection) {
+        this.migrationHistoryService.findInfo(connection).forEach(info -> {
+            LOGGER.info("Migration: {}", info);
+        });
+    }
+
     private void processMigration(final List<MigrationFile> migrationFiles, final Connection connection) {
         var latestVersion = this.migrationHistoryService.findCurrentVersion(connection);
 

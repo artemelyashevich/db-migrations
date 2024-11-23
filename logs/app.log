@@ -279,3 +279,59 @@ DROP TABLE IF EXISTS dog;
 2024-11-23 19:28:01 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
 2024-11-23 19:28:43 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
 2024-11-23 19:29:36 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:51:38 [main] INFO  org.elyashevich.dbmigration.Application - Available commands: MIGRATE
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Table has been created.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration version has been found.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied. Rows affected: 4
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_1__create_dog
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_1__create_dog
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Table has been unlocked.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_2__create_cat
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_2__create_cat
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Table has been unlocked.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_2__create_cat
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_3__create_tosha
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_3__create_tosha
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Table has been unlocked.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_3__create_tosha
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Attempting to save migration V_4__drop_dog
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Migration has been saved V_4__drop_dog
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Table has been unlocked.
+2024-11-23 20:53:55 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_4__drop_dog
+2024-11-23 20:56:41 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-23 20:56:50 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:56:50 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration versions has been found.
+2024-11-23 20:56:50 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:56:50 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:56:50 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:56:50 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:57:29 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-23 20:57:33 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:57:33 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration versions has been found.
+2024-11-23 20:57:33 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:57:33 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:57:33 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:57:33 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:00 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-23 20:58:02 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:58:02 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration versions has been found.
+2024-11-23 20:58:02 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:02 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:02 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:02 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:25 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-23 20:58:28 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:58:28 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration versions has been found.
+2024-11-23 20:58:28 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:28 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:28 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:28 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-23 20:58:42 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-23 20:58:44 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-23 20:58:44 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration versions has been found.
+2024-11-23 20:58:44 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_1__create_dog 1
+2024-11-23 20:58:44 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_2__create_cat 2
+2024-11-23 20:58:44 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_3__create_tosha 3
+2024-11-23 20:58:44 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4

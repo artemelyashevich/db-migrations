@@ -12,4 +12,6 @@ public interface MigrationHistoryService {
     Integer findCurrentVersion(final Connection connection);
 
     Boolean isLocked(final Connection connection);
+
+    List<String> findInfo(final Connection connection);
 }
