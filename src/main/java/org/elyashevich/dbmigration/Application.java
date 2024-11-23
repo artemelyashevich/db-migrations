@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.elyashevich.dbmigration.facade.MigrationFacade;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Application {
@@ -20,7 +21,7 @@ public class Application {
         if (command.isBlank()) {
             LOGGER.info("Available commands: 'migrate', 'status'.");
         } else {
-            switch (command) {
+            switch (command.toLowerCase()) {
                 case "migrate":
                     migrationFacade.migrate();
                     break;
