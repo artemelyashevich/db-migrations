@@ -16,7 +16,7 @@ public class MigrationExecutorDaoImpl implements MigrationExecutorDao {
     @Override
     public void apply(final List<String> queries, final Connection connection) throws SQLException {
         try (var statement = connection.createStatement()) {
-            LOGGER.info("Attempting to apply actual migrations");
+            LOGGER.debug("Attempting to apply actual migrations");
 
             connection.setAutoCommit(false);
             for (var query : queries) {

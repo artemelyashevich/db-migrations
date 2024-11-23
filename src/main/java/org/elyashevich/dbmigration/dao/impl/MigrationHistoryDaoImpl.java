@@ -49,9 +49,11 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
     public Integer findCurrentVersion(final Connection connection) {
         try (var prepareStatement = connection.prepareStatement(SELECT_CURRENT_VERSION_QUERY);
              var resultSet = prepareStatement.executeQuery()) {
+            LOGGER.debug("Attempting find latest migration version.");
             if (resultSet.next()) {
                 return resultSet.getInt("version");
             }
+            LOGGER.info("Latest migration version has been found.");
         } catch (SQLException exception) {
             LOGGER.error("Error getting current version: {}", exception.getMessage());
         }
@@ -63,6 +65,7 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
         createTable(connection);
         try (var prepareStatement = connection.prepareStatement(SELECT_UNLOCKED_MIGRATIONS);
              var resultSet = prepareStatement.executeQuery()) {
+            LOGGER.debug("Attempting check if migration is locked.");
             return resultSet.next();
         } catch (SQLException exception) {
             LOGGER.error("Error to find locked migrations: {}", exception.getMessage());
@@ -73,8 +76,10 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
     @Override
     public void unlock(final Integer version, final Connection connection) {
         try (var prepareStatement = connection.prepareStatement(UPDATE_TO_UNLOCKED_STATUS_QUERY)) {
+            LOGGER.debug("Attempting unlock table.");
             prepareStatement.setInt(1, version);
             prepareStatement.executeUpdate();
+            LOGGER.info("Table has been unlocked.");
         } catch (SQLException exception) {
             LOGGER.error("Error unlocking migration: {}", exception.getMessage());
         }
@@ -82,7 +87,9 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
 
     private static void createTable(final Connection connection) {
         try (var prepareStatement = connection.prepareStatement(CREATE_MIGRATION_HISTORY_TABLE_QUERY)) {
+            LOGGER.debug("Attempting create table.");
             prepareStatement.executeUpdate();
+            LOGGER.info("Table has been created.");
         } catch (SQLException exception) {
             LOGGER.error("Error creating migration_history table: {}", exception.getMessage());
         }
