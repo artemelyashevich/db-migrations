@@ -23,7 +23,7 @@ public class DefaultMigrationHistoryService implements MigrationHistoryService {
     public void saveMigrations(final List<MigrationFile> migrations, final Connection connection) {
         migrations.forEach(migration -> {
             this.migrationHistoryDao.saveMigration(migration, connection);
-
+            this.migrationHistoryDao.unlock(migration.getVersion(), connection);
             LOGGER.info("Applied migration: {}", migration.getFilename());
         });
     }

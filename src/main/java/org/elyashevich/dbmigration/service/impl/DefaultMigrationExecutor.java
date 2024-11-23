@@ -6,6 +6,7 @@ import org.elyashevich.dbmigration.service.MigrationExecutorService;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class DefaultMigrationExecutor implements MigrationExecutorService {
 
@@ -16,7 +17,7 @@ public class DefaultMigrationExecutor implements MigrationExecutorService {
     }
 
     @Override
-    public void apply(final String query, final Connection connection) throws SQLException {
+    public void apply(final List<String> query, final Connection connection) throws SQLException {
         this.migrationExecutorDao.apply(query, connection);
     }
 }

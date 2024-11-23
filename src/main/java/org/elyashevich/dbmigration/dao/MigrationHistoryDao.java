@@ -11,4 +11,6 @@ public interface MigrationHistoryDao {
     Integer findCurrentVersion(final Connection connection);
 
     Boolean checkIfLocked(final Connection connection);
+
+    void unlock(final Integer version, final Connection connection);
 }

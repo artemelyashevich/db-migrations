@@ -5,7 +5,7 @@ import org.apache.logging.log4j.core.Logger;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.PropertyResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.logging.log4j.LogManager;
 import org.elyashevich.dbmigration.exception.MigrationFilesException;
@@ -18,7 +18,7 @@ import org.elyashevich.dbmigration.util.MigrationUtil;
 public class DefaultMigrationManager implements MigrationManager {
 
     private static final Logger LOGGER = (Logger) LogManager.getLogger();
-    private static final int DELAY_TO_RETRIEV_LOCKED_STATUS = 5000;
+    private static final int DELAY_TO_RETRIEVE_LOCKED_STATUS = 5000;
 
     private final MigrationExecutorService migrationExecutor;
     private final MigrationHistoryService migrationHistoryService;
@@ -31,9 +31,9 @@ public class DefaultMigrationManager implements MigrationManager {
     @Override
     public void migrate(final List<MigrationFile> migrationFiles, final Connection connection) {
         var isLocked = this.migrationHistoryService.isLocked(connection);
-        while(isLocked) {
+        while (isLocked) {
             try {
-                Thread.sleep(DELAY_TO_RETRIEV_LOCKED_STATUS);
+                TimeUnit.MILLISECONDS.sleep(DELAY_TO_RETRIEVE_LOCKED_STATUS);
 
                 LOGGER.info("Migration is locked...");
 
@@ -49,7 +49,7 @@ public class DefaultMigrationManager implements MigrationManager {
         var latestVersion = this.migrationHistoryService.findCurrentVersion(connection);
 
         var migrations = MigrationUtil.filterByVersion(migrationFiles, latestVersion);
-        var migrationsScript = MigrationUtil.extractMigrationScripts(migrationFiles);
+        var migrationsScript = MigrationUtil.extractMigrationScripts(migrations);
 
         try {
             this.migrationExecutor.apply(migrationsScript, connection);

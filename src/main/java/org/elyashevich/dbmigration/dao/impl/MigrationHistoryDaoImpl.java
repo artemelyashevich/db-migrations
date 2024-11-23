@@ -36,8 +36,8 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
             prepareStatement.setString(1, migrationFile.getFilename());
             prepareStatement.setInt(2, migrationFile.getVersion());
             prepareStatement.setInt(3, 1);
+
             prepareStatement.executeUpdate();
-            unlock(migrationFile.getVersion(), connection);
 
             LOGGER.info("Migration has been saved {}", migrationFile.getFilename());
         } catch (SQLException exception) {
@@ -47,7 +47,6 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
 
     @Override
     public Integer findCurrentVersion(final Connection connection) {
-        createTable(connection);
         try (var prepareStatement = connection.prepareStatement(SELECT_CURRENT_VERSION_QUERY);
              var resultSet = prepareStatement.executeQuery()) {
             if (resultSet.next()) {
@@ -60,7 +59,8 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
     }
 
     @Override
-    public Boolean checkIfLocked(Connection connection) {
+    public Boolean checkIfLocked(final Connection connection) {
+        createTable(connection);
         try (var prepareStatement = connection.prepareStatement(SELECT_UNLOCKED_MIGRATIONS);
              var resultSet = prepareStatement.executeQuery()) {
             return resultSet.next();
@@ -70,20 +70,21 @@ public class MigrationHistoryDaoImpl implements MigrationHistoryDao {
         return false;
     }
 
-    private static void createTable(final Connection connection) {
-        try (var prepareStatement = connection.prepareStatement(CREATE_MIGRATION_HISTORY_TABLE_QUERY)) {
-            prepareStatement.executeUpdate();
-        } catch (SQLException exception) {
-            LOGGER.error("Error creating migration_history table: {}", exception.getMessage());
-        }
-    }
-
-    private static void unlock(final Integer version, final Connection connection) {
+    @Override
+    public void unlock(final Integer version, final Connection connection) {
         try (var prepareStatement = connection.prepareStatement(UPDATE_TO_UNLOCKED_STATUS_QUERY)) {
             prepareStatement.setInt(1, version);
             prepareStatement.executeUpdate();
         } catch (SQLException exception) {
             LOGGER.error("Error unlocking migration: {}", exception.getMessage());
+        }
+    }
+
+    private static void createTable(final Connection connection) {
+        try (var prepareStatement = connection.prepareStatement(CREATE_MIGRATION_HISTORY_TABLE_QUERY)) {
+            prepareStatement.executeUpdate();
+        } catch (SQLException exception) {
+            LOGGER.error("Error creating migration_history table: {}", exception.getMessage());
         }
     }
 }

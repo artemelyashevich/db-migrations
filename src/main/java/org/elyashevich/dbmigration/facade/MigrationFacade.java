@@ -12,6 +12,8 @@ import org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl;
 import org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService;
 import org.elyashevich.dbmigration.facade.reader.MigrationFileReader;
 
+import java.sql.SQLException;
+
 import static org.elyashevich.dbmigration.util.ConfigurationConstant.*;
 
 
@@ -41,9 +43,12 @@ public class MigrationFacade {
     public void migrate() {
         try {
             var migrations = this.fileReader.read(PATH_TO_MIGRATIONS);
-            var connection = this.connectionManager.getConnection(properties);
 
-            this.migrationManager.migrate(migrations, connection);
+            try (var connection = this.connectionManager.getConnection(properties)) {
+                this.migrationManager.migrate(migrations, connection);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
         } catch (BrokenValidationException e) {
             LOGGER.error("Failed to validate migrations files: {}", e.getMessage());
         } catch (RuntimeException e) {

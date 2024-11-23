@@ -16,12 +16,9 @@ public final class MigrationUtil {
                 .toList();
     }
 
-    public static String extractMigrationScripts(final List<MigrationFile> migrationFiles) {
+    public static List<String> extractMigrationScripts(final List<MigrationFile> migrationFiles) {
         return migrationFiles.stream()
-                .map(migration -> "\n" + migration.getContent())
-                .collect(StringBuilder::new,
-                        StringBuilder::append,
-                        StringBuilder::append)
-                .toString();
+                .map(MigrationFile::getContent)
+                .toList();
     }
 }
