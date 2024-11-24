@@ -16,10 +16,10 @@ public class MigrationPropertyReaderTest {
         // Act
         DatabaseProperties properties = MigrationPropertyReader.loadProperties(validFilename);
 
-        var expectedDriver = "com.mysql.cj.jdbc.Driver";
+        var expectedDriver = "org.h2.Driver";
         var expectedUsername = "admin";
         var expectedPassword = "admin";
-        var expectedUrl = "jdbc:mysql://localhost:3306/test-db";
+        var expectedUrl = "jdbc:h2:mem:test";
 
         // Assert
         assertEquals(expectedUsername, properties.username());

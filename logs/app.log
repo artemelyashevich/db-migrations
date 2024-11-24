@@ -16,3 +16,11 @@
 2024-11-24 02:41:55 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'abcdef' at line 1
 2024-11-24 02:43:50 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
 2024-11-24 02:43:50 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'abcdef' at line 1
+2024-11-24 09:54:06 [main] ERROR org.elyashevich.dbmigration.facade.db.ConnectionManager - Failed connect to database: Connection is broken: "java.net.ConnectException: Connection refused: no further information: localhost" [90067-224]
+2024-11-24 09:54:08 [main] ERROR org.elyashevich.dbmigration.facade.db.ConnectionManager - Failed connect to database: Connection is broken: "java.net.ConnectException: Connection refused: no further information: localhost" [90067-224]
+2024-11-24 09:55:33 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 09:55:53 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 09:55:53 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 09:56:03 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 09:56:03 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: Syntax error in SQL statement "[*]abcdef;"; expected "ALTER, ANALYZE"; SQL statement:
+abcdef; [42001-224]
