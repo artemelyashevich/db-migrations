@@ -24,3 +24,56 @@
 2024-11-24 09:56:03 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
 2024-11-24 09:56:03 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Failed to apply migration: Syntax error in SQL statement "[*]abcdef;"; expected "ALTER, ANALYZE"; SQL statement:
 abcdef; [42001-224]
+2024-11-24 10:01:47 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-24 10:01:50 [main] ERROR org.elyashevich.dbmigration.facade.db.ConnectionManager - Failed connect to database: org.h2.Driver
+2024-11-24 10:02:30 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-24 10:02:32 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 10:02:32 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error finding info: Table "MIGRATION_HISTORY" not found (this database is empty); SQL statement:
+SELECT name, version FROM migration_history LIMIT 10; [42104-224]
+2024-11-24 10:02:49 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-24 10:02:54 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error creating migration_history table: Syntax error in SQL statement "CREATE TABLE IF NOT EXISTS migration_history (\000a    id BIGINT PRIMARY KEY AUTO_INCREMENT,\000a    name VARCHAR(255) NOT NULL,\000a    version INT NOT NULL UNIQUE,\000a    is_locked TINYINT[*](1) NOT NULL,\000a    applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP\000a);\000a"; expected "ARRAY, INVISIBLE, VISIBLE, NOT NULL, DEFAULT, GENERATED, ON UPDATE, NOT NULL, DEFAULT ON NULL, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, COMMENT, PRIMARY KEY, UNIQUE, NOT NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE IF NOT EXISTS migration_history (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL,
+    version INT NOT NULL UNIQUE,
+    is_locked TINYINT(1) NOT NULL,
+    applied_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+ [42001-224]
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error to find locked migrations: Table "MIGRATION_HISTORY" not found (this database is empty); SQL statement:
+SELECT * FROM migration_history WHERE is_locked = 1 [42104-224]
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error getting current version: Table "MIGRATION_HISTORY" not found (this database is empty); SQL statement:
+SELECT version FROM migration_history ORDER BY version DESC LIMIT 1 [42104-224]
+2024-11-24 10:02:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied. Rows affected: 4
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+INSERT INTO migration_history (name, version, is_locked) VALUES (?, ?, ?); [42102-224]
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error unlocking migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+UPDATE migration_history SET is_locked = 0 WHERE version = ?; [42102-224]
+2024-11-24 10:02:54 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_1__create_dog
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+INSERT INTO migration_history (name, version, is_locked) VALUES (?, ?, ?); [42102-224]
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error unlocking migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+UPDATE migration_history SET is_locked = 0 WHERE version = ?; [42102-224]
+2024-11-24 10:02:54 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_2__create_cat
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+INSERT INTO migration_history (name, version, is_locked) VALUES (?, ?, ?); [42102-224]
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error unlocking migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+UPDATE migration_history SET is_locked = 0 WHERE version = ?; [42102-224]
+2024-11-24 10:02:54 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_3__create_tosha
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Failed to save migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+INSERT INTO migration_history (name, version, is_locked) VALUES (?, ?, ?); [42102-224]
+2024-11-24 10:02:54 [main] ERROR org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Error unlocking migration: Table "MIGRATION_HISTORY" not found; SQL statement:
+UPDATE migration_history SET is_locked = 0 WHERE version = ?; [42102-224]
+2024-11-24 10:02:54 [main] INFO  org.elyashevich.dbmigration.service.impl.DefaultMigrationHistoryService - Applied migration: V_4__drop_dog
+2024-11-24 10:03:44 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-24 10:03:47 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 10:03:47 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Latest migration versions has been found.
+2024-11-24 10:03:47 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_1__create_dog 1
+2024-11-24 10:03:47 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_2__create_cat 2
+2024-11-24 10:03:47 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_3__create_tosha 3
+2024-11-24 10:03:47 [main] INFO  org.elyashevich.dbmigration.facade.manager.DefaultMigrationManager - Migration: V_4__drop_dog 4
+2024-11-24 10:03:51 [main] INFO  org.elyashevich.dbmigration.Application - Enter a command ('migrate', 'status'):
+2024-11-24 10:03:54 [main] INFO  org.elyashevich.dbmigration.facade.db.ConnectionManager - Connected to db.
+2024-11-24 10:03:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationHistoryDaoImpl - Table has been created.
+2024-11-24 10:03:54 [main] INFO  org.elyashevich.dbmigration.dao.impl.MigrationExecutorDaoImpl - Actual migrations have been applied. Rows affected: 0

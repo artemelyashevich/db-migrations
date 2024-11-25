@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.core.Logger;
 import org.elyashevich.dbmigration.facade.MigrationFacade;
 
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Application {
@@ -16,7 +15,9 @@ public class Application {
 
         LOGGER.info("Enter a command ('migrate', 'status'):");
 
-        var command = new Scanner(System.in).nextLine();
+        var scanner = new Scanner(System.in);
+
+        var command = scanner.nextLine();
 
         if (command.isBlank()) {
             LOGGER.info("Available commands: 'migrate', 'status'.");
@@ -33,5 +34,7 @@ public class Application {
                     break;
             }
         }
+
+        scanner.close();
     }
 }
